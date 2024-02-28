@@ -1,6 +1,13 @@
 # Terraform_AWS_Docs https://registry.terraform.io/providers/hashicorp/aws/latest/docs
 
 terraform {
+  cloud {
+    organization = "Commelier"
+    workspaces {
+      name = "learn-tfc-aws"
+    }
+  }
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"
