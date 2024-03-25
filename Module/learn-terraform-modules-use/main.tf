@@ -32,12 +32,12 @@ module "ec2_instances" {
   version = "4.3.0"
   count   = 2
 
-  name = "my-ec2-cluster"
+  name = "my-ec2-cluster-${count.index}"
 
-  ami                    = "ami-0c5204531f799e0c6"
+  ami                    = "ami-02c956980e9e063e5"
   instance_type          = "t3.micro"
   vpc_security_group_ids = [module.vpc.default_security_group_id]
-  subnet_id              = module.vpc.public_subnets[0]
+  subnet_id              = module.vpc.public_subnets[count.index]
 
   tags = {
     Terraform   = "true"
