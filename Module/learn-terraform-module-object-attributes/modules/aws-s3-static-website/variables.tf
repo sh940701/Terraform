@@ -20,3 +20,13 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+
+variable "files" {
+  description = "Configuration for website files."
+  type        = object({
+    terraform_managed     = bool
+    error_document_key    = optional(string)
+    index_document_suffix = optional(string)
+    www_path              = optional(string)
+  })
+}
