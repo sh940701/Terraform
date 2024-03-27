@@ -23,4 +23,11 @@ module "website_s3_bucket" {
     environment   = "dev"
     public-bucket = true
   }
+
+  files = {
+    terraform_managed = true
+    www_path = "${path.root}/www"
+    index_document_suffix = "index.html"
+    error_document_key = "error.html"
+  }
 }
