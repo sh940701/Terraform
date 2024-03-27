@@ -76,7 +76,7 @@ module "template_files" {
 }
 
 resource "aws_s3_object" "web" {
-  for_each = var.files.terraform_managed_files ? module.template_files.files : {}
+  for_each = var.files.terraform_managed ? module.template_files.files : {}
 
   bucket = aws_s3_bucket.web.id
 
